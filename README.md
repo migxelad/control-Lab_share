@@ -43,4 +43,3 @@ API: `POST /api/analyze`, `POST /api/report?format=pdf|md|tex` (docs interactiva
 - Sin realimentación (“lazo abierto”), las constantes de error se refieren al cierre unitario de G(s).
 - Con diagramas de bloques, Bode/Nyquist/LGR usan el lazo equivalente unitario L = T/(1−T).
 - Tests: `cd backend && ../.venv/bin/python -m pytest`.
-
