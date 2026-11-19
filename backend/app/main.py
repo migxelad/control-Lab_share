@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .symbolic import AnalysisError
 from .analysis import analyze
+from .paramstab import param_stability
 from . import report
 
 app = FastAPI(title="Control Lab API", version="1.0")
@@ -41,6 +42,17 @@ def health():
 def api_analyze(req: dict):
     try:
         return analyze(req)
+    except AnalysisError:
+        raise
+    except Exception as ex:  # noqa: BLE001
+        traceback.print_exc()
+        return JSONResponse(status_code=500, content={"ok": False, "detail": f"Error interno: {type(ex).__name__}: {ex}"})
+
+
+@router.post("/param-stability")
+def api_param_stability(req: dict):
+    try:
+        return param_stability(req)
     except AnalysisError:
         raise
     except Exception as ex:  # noqa: BLE001

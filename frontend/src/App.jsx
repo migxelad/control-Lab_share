@@ -139,7 +139,7 @@ export default function App() {
           </section>
           {mode !== 'blocks' && <FeedbackPicker fb={fb} setFb={setFb} />}
           {error && <div className="rounded-xl border border-rose-500/50 bg-rose-500/10 p-3 text-sm text-rose-600 dark:text-rose-300"><b>No se pudo analizar:</b> {error}</div>}
-          {result ? <div className={error ? 'opacity-50' : ''}><Results result={result} theme={theme} /></div>
+          {result ? <div className={error ? 'opacity-50' : ''}><Results result={result} theme={theme} request={request} onApply={onParam} /></div>
             : !error && <p className="text-slate-500">Calculando…</p>}
         </main>
         <div className="min-h-0 lg:overflow-hidden">

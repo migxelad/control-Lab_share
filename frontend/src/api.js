@@ -17,3 +17,4 @@ export async function downloadReport(req, format) {
   a.click()
   setTimeout(() => URL.revokeObjectURL(a.href), 4000)
 }
+export async function analyzeStability(req) { return (await post('/api/param-stability', req)).json() }

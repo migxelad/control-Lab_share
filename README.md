@@ -27,6 +27,14 @@ escalón/impulso/rampa/parábola con %OS, tp, ts(2 %, 5 %), tr(10–90 %, 0–10
 tipo, Kp, Kv, Ka, e_ss · mapa de polos y ceros · Bode con GM/PM · Nyquist (Z = N + P) · LGR con asíntotas,
 puntos de ruptura y cruces con jω.
 
+### Estabilidad en función de parámetros (pestaña «Estabilidad vs parámetro»)
+Elige 1 ó 2 parámetros (K, a, R…) del sistema, sea cual sea el modo de entrada:
+- **1 parámetro:** array de Routh con K simbólica y sus condiciones, determinante de Hurwitz, **rango(s) de K con estabilidad**,
+  **K de estabilidad marginal** con la frecuencia de oscilación ω y el periodo T, y casos con polo en el origen.
+  Gráficas de máx Re(polos) vs K y trayectoria de los polos. Botones para analizar el sistema completo con cualquiera de esos valores de K.
+- **2 parámetros:** mapa de la región estable (clic en un punto para analizarlo), frontera de estabilidad marginal y rangos de cada parámetro con el otro fijo.
+- API: `POST /api/param-stability` (mismo cuerpo que `/api/analyze` más `study: {params: [...], ranges: {K: [min, max]}}`).
+
 **Exportar**: PDF, Markdown (zip con figuras) o LaTeX (zip con figuras) desde la barra superior.
 
 ## Estructura
